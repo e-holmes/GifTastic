@@ -33,7 +33,7 @@ $(document).ready(function(){
         var hero = $(this).val();
         console.log(hero);
         var key = "MveVrHBmkLYI7LhwENhWniJyNgWXbEYo";
-        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +hero +"&api_key=" +key +"&limit=11"
+        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" +hero +"&api_key=" +key +"&limit=11"
         
         $.ajax({
             url: queryURL,
