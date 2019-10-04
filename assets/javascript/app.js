@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    var array=["Spider Man", "Supergirl", "Flash", "Iron Man", "The Rock", "Harry Potter", "Pickachu", "Batman", "Captain Kirk", "Matilda"];
+    var array=["Spider Man", "Supergirl", "Flash", "Iron Man", "The Rock", "Harry Potter", "Pikachu", "Batman", "Captain Kirk", "Matilda"];
     console.log("Initial Array Length" +array.length);
     mkBtns();
 
