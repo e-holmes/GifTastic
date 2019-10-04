@@ -1,27 +1,39 @@
 $(document).ready(function(){
     var array=["Spider Man", "Supergirl", "Flash", "Iron Man", "The Rock", "Harry Potter", "Pickachu", "Batman", "Captain Kirk", "Matilda"];
-    console.log(array.length);
+    console.log("Initial Array Length" +array.length);
     mkBtns();
 
-    function mkBtns(i){
+    function mkBtns(){
         $("#buttons").empty();
+        console.log("Array length: " +array.length);
         for (i=0; i<array.length; i++){
             button=$("<button>");
-            button.attr("class", "col-3 bttn");
+            button.attr("class", "col-3");
+            button.attr("id", "bttn")
             button.attr("value", array[i]);
             button.text(array[i]);
-            $("#buttons").append(button);
-            
+            $("#buttons").append(button); 
         };
     };
+
+
+    $(".submit").on("click", function(){
+        var item = $(".usrHero").val();
+        console.log(item);
+        array.push(item);
+        console.log(array);
+        mkBtns();
+    });
+
     
-    $(".bttn").on("click", function(event){
+    $("#bttn").on("click", function(event){
+        console.log("Fetching Photos");
         event.preventDefault();
         $("#gifs").empty();
         var hero = $(this).val();
         console.log(hero);
         var key = "MveVrHBmkLYI7LhwENhWniJyNgWXbEYo";
-        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +hero +"&api_key=" +key +"&limit=20"
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +hero +"&api_key=" +key +"&limit=11"
         
         $.ajax({
             url: queryURL,
@@ -36,7 +48,7 @@ $(document).ready(function(){
             if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
               // Creating a div for the gif
               var gifDiv = $("<div>");
-              gifDiv.attr("class", "col-3 justify");
+            //   gifDiv.attr("class", "col-3 justify");
 
               // Storing the result item's rating
               var rating = results[i].rating;
@@ -49,7 +61,7 @@ $(document).ready(function(){
 
               // Giving the image tag an src attribute of a proprty pulled off the
               // result item
-              personImage.attr("src", results[i].images.fixed_width_still.url);
+              personImage.attr("src", results[i].images.fixed_height_still.url);
 
               // Appending the paragraph and personImage we created to the "gifDiv" div we created
               gifDiv.append(p);
