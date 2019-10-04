@@ -1,10 +1,30 @@
+body{
+    background-image: url("../images/exploding.gif");
+}
+
 .floaty{
     float:left;
     margin:2%;
+    border: solid 2px white;
 }
 
 .bttn{
     margin: 1%;
     margin-right:2%;
+}
 
+p{
+    text-align: center;
+}
+
+#gifs{
+    font-size: 200%;
+}
+
+form{
+    font-size: 140%;
+}
+
+button{
+    background-color: palevioletred;
 }
