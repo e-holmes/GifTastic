@@ -3,6 +3,7 @@ $(document).ready(function(){
     console.log("Initial Array Length" +array.length);
     mkBtns();
 
+    // Create Buttons
     function mkBtns(){
         $("#buttons").empty();
         console.log("Array length: " +array.length);
@@ -17,7 +18,7 @@ $(document).ready(function(){
         attachClickHandlers();
     };
 
-
+    // Handle Sumbit Click
     $(".submit").on("click", function(){
         var item = $(".usrHero").val();
         console.log(item);
@@ -27,7 +28,7 @@ $(document).ready(function(){
         $(".usrHero").val(" ");
     });
 
-    
+    // Add Logic to buttons
     function attachClickHandlers() {
         $(".bttn").on("click", function(event){
             console.log("Fetching Photos");
